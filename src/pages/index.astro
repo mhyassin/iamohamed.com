@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+---
+<Layout>
+  <Nav />
+  <main>
+    <section class="shell flex min-h-[calc(100svh-88px)] flex-col justify-between pb-8 pt-10 md:pb-12 md:pt-16">
+      <div class="reveal">
+        <p class="eyebrow mb-8 text-muted">Senior Software Engineer · Munich</p>
+        <h1 class="display">MOHAMED<br />YASSIN<span class="text-copper">.</span></h1>
+      </div>
+      <div class="mt-16 grid gap-8 border-t border-line pt-6 md:grid-cols-[1.4fr_.6fr]">
+        <p class="max-w-2xl text-xl leading-relaxed md:text-2xl">Building mobile products, engineering systems, and teams that ship.</p>
+        <div class="flex justify-between gap-6 text-sm md:justify-end md:gap-12">
+          <div><span class="eyebrow block text-muted">Now</span><span class="mt-2 block font-semibold">ONVY HealthTech</span></div>
+          <div><span class="eyebrow block text-muted">Focus</span><span class="mt-2 block font-semibold">Product engineering</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-ink py-5 text-paper" aria-label="Career highlights">
+      <div class="shell flex flex-wrap justify-between gap-4 text-[.67rem] font-bold uppercase tracking-[.16em] text-white/65">
+        <span>10+ years building products</span><span>Mobile · Web · Platform</span><span>Architecture · Delivery · Leadership</span>
+      </div>
+    </section>
+
+    <section id="work" class="shell py-24 md:py-36">
+      <div class="mb-12 flex items-end justify-between md:mb-16">
+        <div><p class="eyebrow text-copper">Selected work</p><h2 class="section-title mt-4">Built to matter.</h2></div>
+        <span class="hidden text-sm text-muted md:block">01—03</span>
+      </div>
+      <div class="grid gap-5">
+        <ProjectCard number="01" title="ONVY" subtitle="Evolving a production health platform that turns connected data into useful, human experiences." href="/work/onvy/" tags={['Mobile architecture', 'React Native', 'TypeScript', 'Product delivery']} tone="dark" />
+        <div class="grid gap-5 md:grid-cols-2">
+          <ProjectCard number="02" title="Platform thinking" subtitle="Designing foundations that let multiple products move quickly without drifting apart." href="/work/whitelabel-platform/" tags={['Design systems', 'Configuration', 'Scale']} tone="copper" />
+          <ProjectCard number="03" title="Systems that ship" subtitle="Improving the engineering paths between an idea, a reliable release, and observable software." href="/work/engineering-systems/" tags={['CI/CD', 'Quality', 'Observability']} tone="light" />
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="border-y border-line py-24 md:py-36">
+      <div class="shell grid gap-14 md:grid-cols-[.7fr_1.3fr]">
+        <div><p class="eyebrow text-copper">I am Mohamed.</p><h2 class="section-title mt-4">Across the product.</h2></div>
+        <div>
+          <p class="text-2xl leading-snug tracking-[-.025em] md:text-4xl">I’m a senior software engineer who cares about the whole journey—from shaping the problem and architecture to the quiet details that make a product dependable.</p>
+          <div class="mt-14 grid gap-8 sm:grid-cols-3">
+            <div class="rule pt-4"><h3 class="font-bold">I build.</h3><p class="mt-2 text-sm leading-relaxed text-muted">Products used by real people, across mobile and web.</p></div>
+            <div class="rule pt-4"><h3 class="font-bold">I lead.</h3><p class="mt-2 text-sm leading-relaxed text-muted">Architecture, technical decisions, and collaborative delivery.</p></div>
+            <div class="rule pt-4"><h3 class="font-bold">I care.</h3><p class="mt-2 text-sm leading-relaxed text-muted">About the details users notice—and the engineering they don’t.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell py-24 md:py-36">
+      <p class="eyebrow text-copper">Experience</p>
+      <h2 class="section-title mt-4">A career in products.</h2>
+      <div class="mt-14">
+        {[
+          ['Current', 'ONVY HealthTech', 'Senior Software Engineer · Health technology'],
+          ['Previously', 'Product & enterprise teams', 'Mobile, web, platform, and commerce experiences'],
+          ['Foundation', 'Cairo University', 'Computer Science'],
+        ].map(([time, place, role]) => <div class="grid gap-2 border-t border-line py-7 md:grid-cols-[.3fr_.65fr_1fr]"><span class="eyebrow text-muted">{time}</span><strong class="text-xl">{place}</strong><span class="text-muted">{role}</span></div>)}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

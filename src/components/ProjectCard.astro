@@ -1,0 +1,18 @@
+---
+interface Props { number: string; title: string; subtitle: string; href: string; tags: string[]; tone: 'dark' | 'copper' | 'light'; }
+const { number, title, subtitle, href, tags, tone } = Astro.props;
+const tones = { dark: 'bg-ink text-paper', copper: 'bg-[#b95f36] text-white', light: 'bg-[#ddd9ce] text-ink' };
+---
+<a href={href} class={`project group flex flex-col justify-between p-7 md:p-11 ${tones[tone]}`}>
+  <div class="flex items-start justify-between">
+    <span class="eyebrow opacity-60">{number} / Selected work</span>
+    <span class="arrow text-2xl" aria-hidden="true">↗</span>
+  </div>
+  <div class="max-w-3xl">
+    <h3 class="text-[clamp(2.6rem,7vw,6.5rem)] font-bold leading-[.88] tracking-[-.06em]">{title}</h3>
+    <p class="mt-5 max-w-xl text-lg leading-relaxed opacity-75">{subtitle}</p>
+    <ul class="mt-8 flex flex-wrap gap-2" aria-label="Technologies and themes">
+      {tags.map((tag) => <li class="rounded-full border border-current/30 px-3 py-1 text-xs font-semibold">{tag}</li>)}
+    </ul>
+  </div>
+</a>

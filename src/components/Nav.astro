@@ -1,0 +1,12 @@
+---
+const home = Astro.url.pathname === '/';
+---
+<header class="shell flex items-center justify-between py-6 md:py-8">
+  <a href="/" class="text-xl font-bold tracking-[-.04em]">iamohamed<span class="text-copper">.</span></a>
+  <nav aria-label="Main navigation" class="flex items-center gap-5 text-sm font-semibold md:gap-8">
+    {home && <a href="#work" class="hidden sm:block">Work</a>}
+    {home && <a href="#about" class="hidden sm:block">About</a>}
+    <a href="https://github.com/mhyassin" rel="me">GitHub <span aria-hidden="true">↗</span></a>
+    <a href="https://www.linkedin.com/in/mhyassin" rel="me">LinkedIn <span aria-hidden="true">↗</span></a>
+  </nav>
+</header>

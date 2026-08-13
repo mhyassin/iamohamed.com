@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { cases, type Study } from '../../data/cases';
+
+export function getStaticPaths() { return Object.keys(cases).map((slug) => ({ params: { slug }, props: { study: cases[slug] } })); }
+const { study } = Astro.props as { study: Study };
+---
+<Layout title={`${study.title} — Mohamed Yassin`} description={study.dek}>
+  <Nav />
+  <main>
+    <article>
+      <header class="shell pb-20 pt-16 md:pb-28 md:pt-24">
+        <a href="/#work" class="eyebrow text-muted">← Selected work</a>
+        <p class="eyebrow mt-20 text-copper">{study.number} / Case study</p>
+        <h1 class="mt-5 max-w-5xl text-[clamp(3.7rem,10vw,9rem)] font-bold leading-[.84] tracking-[-.07em]">{study.title}</h1>
+        <p class="mt-8 max-w-2xl text-xl leading-relaxed text-muted md:text-2xl">{study.dek}</p>
+        <ul class="mt-10 flex flex-wrap gap-2">{study.tags.map((tag) => <li class="rounded-full border border-line px-3 py-1 text-xs font-semibold">{tag}</li>)}</ul>
+      </header>
+      <div class="bg-ink py-20 text-paper md:py-28">
+        <div class="shell grid gap-12 md:grid-cols-[.45fr_1fr]"><p class="eyebrow text-copper">Context</p><p class="max-w-3xl text-2xl leading-snug md:text-4xl">{study.intro}</p></div>
+      </div>
+      <div class="shell py-24 md:py-32">
+        <section class="grid gap-8 border-t border-line py-12 md:grid-cols-[.45fr_1fr]"><h2 class="eyebrow text-copper">The challenge</h2><p class="max-w-3xl text-xl leading-relaxed">{study.challenge}</p></section>
+        <section class="grid gap-8 border-t border-line py-12 md:grid-cols-[.45fr_1fr]"><h2 class="eyebrow text-copper">The approach</h2><ol class="grid gap-6">{study.approach.map((item, i) => <li class="grid grid-cols-[2.5rem_1fr] gap-3 text-xl leading-relaxed"><span class="text-muted">0{i + 1}</span><span>{item}</span></li>)}</ol></section>
+        <section class="grid gap-8 border-y border-line py-12 md:grid-cols-[.45fr_1fr]"><h2 class="eyebrow text-copper">The outcome</h2><p class="max-w-3xl text-xl leading-relaxed">{study.result}</p></section>
+        <p class="mt-10 max-w-2xl text-xs leading-relaxed text-muted">{study.note}</p>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</Layout>
