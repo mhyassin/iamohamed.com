@@ -10,8 +10,8 @@ Built with Astro, TypeScript, and Tailwind CSS. The site is statically generated
 
 - `/` — homepage with selected work, about, experience, and contact
 - `/work/onvy` — high-level mobile health platform case study
-- `/work/whitelabel-platform` — platform and product-system case study
-- `/work/engineering-systems` — delivery and engineering-systems case study
+- `/work/frontend-products` — frontend career chapter across product companies
+- `/work/web-commerce` — frontend and commerce foundations
 
 Employer-related writing is deliberately high-level. This repository contains no private source code, customer information, internal architecture, proprietary screenshots, credentials, or non-public performance data.
 

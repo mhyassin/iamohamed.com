@@ -9,21 +9,21 @@ import ProjectCard from '../components/ProjectCard.astro';
   <main>
     <section class="shell flex min-h-[calc(100svh-88px)] flex-col justify-between pb-8 pt-10 md:pb-12 md:pt-16">
       <div class="reveal">
-        <p class="eyebrow mb-8 text-muted">Senior Software Engineer · Munich</p>
+        <p class="eyebrow mb-8 text-muted">Senior Software Engineer · Frontend & Mobile · Munich</p>
         <h1 class="display">MOHAMED<br />YASSIN<span class="text-copper">.</span></h1>
       </div>
       <div class="mt-16 grid gap-8 border-t border-line pt-6 md:grid-cols-[1.4fr_.6fr]">
-        <p class="max-w-2xl text-xl leading-relaxed md:text-2xl">Building mobile products, engineering systems, and teams that ship.</p>
+        <p class="max-w-2xl text-xl leading-relaxed md:text-2xl">Frontend engineer building thoughtful product experiences across mobile and web.</p>
         <div class="flex justify-between gap-6 text-sm md:justify-end md:gap-12">
           <div><span class="eyebrow block text-muted">Now</span><span class="mt-2 block font-semibold">ONVY HealthTech</span></div>
-          <div><span class="eyebrow block text-muted">Focus</span><span class="mt-2 block font-semibold">Product engineering</span></div>
+          <div><span class="eyebrow block text-muted">Focus</span><span class="mt-2 block font-semibold">Frontend · Mobile</span></div>
         </div>
       </div>
     </section>
 
     <section class="bg-ink py-5 text-paper" aria-label="Career highlights">
       <div class="shell flex flex-wrap justify-between gap-4 text-[.67rem] font-bold uppercase tracking-[.16em] text-white/65">
-        <span>10+ years building products</span><span>Mobile · Web · Platform</span><span>Architecture · Delivery · Leadership</span>
+        <span>11+ years in frontend</span><span>Mobile · Web · Product</span><span>Architecture · UX · Delivery</span>
       </div>
     </section>
 
@@ -35,20 +35,20 @@ import ProjectCard from '../components/ProjectCard.astro';
       <div class="grid gap-5">
         <ProjectCard number="01" title="ONVY" subtitle="Evolving a production health platform that turns connected data into useful, human experiences." href="/work/onvy/" tags={['Mobile architecture', 'React Native', 'TypeScript', 'Product delivery']} tone="dark" />
         <div class="grid gap-5 md:grid-cols-2">
-          <ProjectCard number="02" title="Platform thinking" subtitle="Designing foundations that let multiple products move quickly without drifting apart." href="/work/whitelabel-platform/" tags={['Design systems', 'Configuration', 'Scale']} tone="copper" />
-          <ProjectCard number="03" title="Systems that ship" subtitle="Improving the engineering paths between an idea, a reliable release, and observable software." href="/work/engineering-systems/" tags={['CI/CD', 'Quality', 'Observability']} tone="light" />
+          <ProjectCard number="02" title="Frontend products" subtitle="A career chapter spanning financial services, enterprise AI, and technology products in Munich." href="/work/frontend-products/" tags={['Frontend', 'Product engineering', 'Web']} tone="copper" />
+          <ProjectCard number="03" title="Web & commerce" subtitle="The foundations: customer-facing web experiences, Magento commerce, and large-scale service environments." href="/work/web-commerce/" tags={['Frontend', 'Magento', 'E-commerce']} tone="light" />
         </div>
       </div>
     </section>
 
     <section id="about" class="border-y border-line py-24 md:py-36">
       <div class="shell grid gap-14 md:grid-cols-[.7fr_1.3fr]">
-        <div><p class="eyebrow text-copper">I am Mohamed.</p><h2 class="section-title mt-4">Across the product.</h2></div>
+        <div><p class="eyebrow text-copper">I am Mohamed.</p><h2 class="section-title mt-4">Frontend at heart.</h2></div>
         <div>
-          <p class="text-2xl leading-snug tracking-[-.025em] md:text-4xl">I’m a senior software engineer who cares about the whole journey—from shaping the problem and architecture to the quiet details that make a product dependable.</p>
+          <p class="text-2xl leading-snug tracking-[-.025em] md:text-4xl">I’m a senior software engineer with more than eleven years in frontend development. I work across the product—from interface and architecture to the quiet engineering details that make mobile and web experiences dependable.</p>
           <div class="mt-14 grid gap-8 sm:grid-cols-3">
-            <div class="rule pt-4"><h3 class="font-bold">I build.</h3><p class="mt-2 text-sm leading-relaxed text-muted">Products used by real people, across mobile and web.</p></div>
-            <div class="rule pt-4"><h3 class="font-bold">I lead.</h3><p class="mt-2 text-sm leading-relaxed text-muted">Architecture, technical decisions, and collaborative delivery.</p></div>
+            <div class="rule pt-4"><h3 class="font-bold">I build.</h3><p class="mt-2 text-sm leading-relaxed text-muted">Frontend products used by real people, across mobile and web.</p></div>
+            <div class="rule pt-4"><h3 class="font-bold">I connect.</h3><p class="mt-2 text-sm leading-relaxed text-muted">User experience, frontend architecture, and product delivery.</p></div>
             <div class="rule pt-4"><h3 class="font-bold">I care.</h3><p class="mt-2 text-sm leading-relaxed text-muted">About the details users notice—and the engineering they don’t.</p></div>
           </div>
         </div>
@@ -60,9 +60,13 @@ import ProjectCard from '../components/ProjectCard.astro';
       <h2 class="section-title mt-4">A career in products.</h2>
       <div class="mt-14">
         {[
-          ['Current', 'ONVY HealthTech', 'Senior Software Engineer · Health technology'],
-          ['Previously', 'Product & enterprise teams', 'Mobile, web, platform, and commerce experiences'],
-          ['Foundation', 'Cairo University', 'Computer Science'],
+          ['Jul 2022—Now', 'ONVY HealthTech', 'Senior Software Engineer · Munich'],
+          ['Sep 2020—Jun 2022', 'Finanzchef24', 'Frontend Developer · Munich'],
+          ['Dec 2019—Aug 2020', 'DataRobot', 'Frontend Developer · Munich'],
+          ['Dec 2017—Nov 2019', 'ZEISS Group', 'Frontend Developer · Munich'],
+          ['Apr 2016—Nov 2017', 'RaceChip', 'Magento Frontend Developer · Munich'],
+          ['Mar 2015—Mar 2016', 'Vodafone International Services', 'Frontend Developer'],
+          ['Education', 'Cairo University', 'Computer Science'],
         ].map(([time, place, role]) => <div class="grid gap-2 border-t border-line py-7 md:grid-cols-[.3fr_.65fr_1fr]"><span class="eyebrow text-muted">{time}</span><strong class="text-xl">{place}</strong><span class="text-muted">{role}</span></div>)}
       </div>
     </section>
