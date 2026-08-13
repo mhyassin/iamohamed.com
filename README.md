@@ -34,14 +34,21 @@ The static output is written to `dist/`.
 
 ## cPanel deployment
 
-The included GitHub Actions workflow builds and uploads `dist/` over FTPS on every push to `main`. Configure these repository secrets:
+The included GitHub Actions workflow builds and uploads `dist/` over SSH on every push to `main`.
 
-- `CPANEL_FTP_SERVER`
-- `CPANEL_FTP_USERNAME`
-- `CPANEL_FTP_PASSWORD`
-- `CPANEL_FTP_SERVER_DIR` — typically `/public_html/`
+Configure these repository variables:
 
-Use a dedicated FTP account scoped to the website directory. Never commit credentials to the repository.
+- `CPANEL_HOST`
+- `CPANEL_PORT`
+- `CPANEL_USER`
+- `CPANEL_DEPLOY_PATH` — the absolute document-root path for `iamohamed.com`
+
+Configure these repository secrets:
+
+- `CPANEL_SSH_KEY` — a private key restricted to the deployment account
+- `CPANEL_KNOWN_HOSTS` — the pinned SSH host-key entry for the cPanel server
+
+The workflow rejects relative paths and the server root. It uploads the generated files without deleting unrelated server content. Never commit credentials or host secrets to the repository.
 
 ## Content policy
 

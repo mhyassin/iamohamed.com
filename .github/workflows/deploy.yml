@@ -14,22 +14,75 @@ concurrency:
 
 jobs:
   deploy:
+    name: Build and upload static website
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Check out website
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
-      - run: npm run build
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Validate deployment settings
+        env:
+          CPANEL_HOST: ${{ vars.CPANEL_HOST }}
+          CPANEL_PORT: ${{ vars.CPANEL_PORT }}
+          CPANEL_USER: ${{ vars.CPANEL_USER }}
+          CPANEL_DEPLOY_PATH: ${{ vars.CPANEL_DEPLOY_PATH }}
+          CPANEL_SSH_KEY: ${{ secrets.CPANEL_SSH_KEY }}
+          CPANEL_KNOWN_HOSTS: ${{ secrets.CPANEL_KNOWN_HOSTS }}
+        run: |
+          : "${CPANEL_HOST:?CPANEL_HOST variable is required}"
+          : "${CPANEL_PORT:?CPANEL_PORT variable is required}"
+          : "${CPANEL_USER:?CPANEL_USER variable is required}"
+          : "${CPANEL_DEPLOY_PATH:?CPANEL_DEPLOY_PATH variable is required}"
+          : "${CPANEL_SSH_KEY:?CPANEL_SSH_KEY secret is required}"
+          : "${CPANEL_KNOWN_HOSTS:?CPANEL_KNOWN_HOSTS secret is required}"
+
+          case "$CPANEL_DEPLOY_PATH" in
+            /*) ;;
+            *) echo "CPANEL_DEPLOY_PATH must be an absolute path" >&2; exit 1 ;;
+          esac
+
+          if [ "$CPANEL_DEPLOY_PATH" = "/" ]; then
+            echo "CPANEL_DEPLOY_PATH cannot be the server root" >&2
+            exit 1
+          fi
+
+          test -f dist/index.html
+          test -f dist/.htaccess
+
+      - name: Configure SSH
+        env:
+          CPANEL_SSH_KEY: ${{ secrets.CPANEL_SSH_KEY }}
+          CPANEL_KNOWN_HOSTS: ${{ secrets.CPANEL_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$CPANEL_SSH_KEY" > "$RUNNER_TEMP/cpanel_deploy_key"
+          chmod 600 "$RUNNER_TEMP/cpanel_deploy_key"
+          printf '%s\n' "$CPANEL_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
       - name: Upload static site
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
-        with:
-          server: ${{ secrets.CPANEL_FTP_SERVER }}
-          username: ${{ secrets.CPANEL_FTP_USERNAME }}
-          password: ${{ secrets.CPANEL_FTP_PASSWORD }}
-          protocol: ftps
-          local-dir: ./dist/
-          server-dir: ${{ secrets.CPANEL_FTP_SERVER_DIR }}
-          dangerous-clean-slate: false
+        env:
+          CPANEL_HOST: ${{ vars.CPANEL_HOST }}
+          CPANEL_PORT: ${{ vars.CPANEL_PORT }}
+          CPANEL_USER: ${{ vars.CPANEL_USER }}
+          CPANEL_DEPLOY_PATH: ${{ vars.CPANEL_DEPLOY_PATH }}
+        run: |
+          scp \
+            -r \
+            -i "$RUNNER_TEMP/cpanel_deploy_key" \
+            -P "$CPANEL_PORT" \
+            -o BatchMode=yes \
+            dist/. \
+            "$CPANEL_USER@$CPANEL_HOST:$CPANEL_DEPLOY_PATH/"
