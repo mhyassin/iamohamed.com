@@ -12,20 +12,20 @@ export const cases: Record<string, Study> = {
     result: 'A maintainable product foundation designed for steady iteration—balancing user experience, platform capability, and engineering sustainability.',
     tags: ['React Native', 'Expo', 'TypeScript', 'Mobile architecture', 'Health integrations'], note: 'This case study intentionally stays at a high level and includes no confidential code, customer data, internal metrics, or proprietary architecture.'
   },
-  'whitelabel-platform': {
-    number: '02', title: 'Whitelabel Platform', dek: 'Creating shared product foundations without erasing what makes each experience distinct.',
-    intro: 'Multi-product systems create a deceptively hard problem: reuse enough to move quickly, while preserving the flexibility each product needs.',
-    challenge: 'When visual identity, content, feature availability, and platform behavior vary, ordinary reuse can become a maze of branches. The goal is a system that makes variation intentional and visible.',
-    approach: ['Separate stable product capabilities from brand and market configuration.', 'Use design tokens and shared primitives to keep experiences coherent.', 'Make extension points explicit instead of accumulating one-off conditions.', 'Keep build and release paths repeatable as the product family grows.'],
-    result: 'A platform mindset that reduces drift, clarifies ownership, and makes the next product variation less expensive than the last.',
-    tags: ['Product platforms', 'Design systems', 'Configuration', 'Mobile'], note: 'The examples are generalized to protect employer intellectual property and describe reusable engineering principles rather than an internal implementation.'
+  'frontend-products': {
+    number: '02', title: 'Frontend Product Engineering', dek: 'Building product interfaces across financial services, enterprise AI, and technology organizations.',
+    intro: 'From 2017 to 2022, my frontend career in Munich included roles at ZEISS, DataRobot, and Finanzchef24—three different product contexts connected by the craft of making complex software clear and usable.',
+    challenge: 'Frontend work changes with the domain, but the central responsibility remains consistent: translate product and technical complexity into interfaces that are understandable, maintainable, and dependable.',
+    approach: ['Understand the product domain before choosing an interface solution.', 'Build reusable frontend foundations without losing sight of the user journey.', 'Collaborate across design, product, and engineering boundaries.', 'Balance iteration speed with code quality and long-term maintainability.'],
+    result: 'A broad frontend perspective shaped by financial services, enterprise AI, and established technology products—and a stronger ability to adapt engineering decisions to the product in front of me.',
+    tags: ['Frontend engineering', 'Product interfaces', 'Web', 'Munich'], note: 'This career overview is based on public role and employment information. It intentionally avoids private project details, internal technology claims, and non-public outcomes.'
   },
-  'engineering-systems': {
-    number: '03', title: 'Engineering Systems', dek: 'Improving the path from an idea to a reliable, observable release.',
-    intro: 'The software around the product—tooling, checks, release automation, conventions, and feedback loops—has a direct effect on what a team can ship.',
-    challenge: 'As products and teams grow, slow or fragile delivery paths quietly tax every change. Small inconsistencies compound into longer reviews, riskier releases, and less time for meaningful product work.',
-    approach: ['Automate repeatable checks where they give fast, useful feedback.', 'Design release workflows for confidence, traceability, and recovery.', 'Standardize the common path while leaving room for informed exceptions.', 'Use production feedback to guide engineering priorities.'],
-    result: 'A healthier delivery system: shorter feedback loops, clearer release practices, and more attention available for product decisions.',
-    tags: ['CI/CD', 'Release engineering', 'Quality', 'Observability'], note: 'This narrative is intentionally technology-agnostic where implementation details are not public.'
+  'web-commerce': {
+    number: '03', title: 'Web & Commerce Foundations', dek: 'Early frontend roles across customer-facing services and Magento e-commerce.',
+    intro: 'My professional frontend foundation includes Vodafone International Services and RaceChip, where my role focused on frontend development and, at RaceChip, its Magento e-commerce website.',
+    challenge: 'Customer-facing web and commerce experiences have a direct job to do. They need to communicate clearly, work reliably across browsers and devices, and support users through complete journeys rather than isolated screens.',
+    approach: ['Treat responsive behavior and browser compatibility as product requirements.', 'Build interfaces around complete customer journeys.', 'Work within established platforms while improving the frontend experience.', 'Use each delivery cycle to deepen practical web engineering judgment.'],
+    result: 'A practical foundation in frontend delivery and e-commerce that continues to shape how I approach product interfaces today.',
+    tags: ['Frontend development', 'Magento', 'E-commerce', 'Responsive web'], note: 'This overview uses public employment information and the publicly stated RaceChip e-commerce focus. It contains no employer code, internal systems, or confidential results.'
   }
 };
