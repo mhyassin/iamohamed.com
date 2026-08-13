@@ -25,6 +25,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary" />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Mohamed Yassin',
+      url: 'https://iamohamed.com',
+      email: 'mailto:m.hisham92@hotmail.com',
+      jobTitle: 'Senior Software Engineer',
+      sameAs: ['https://github.com/mhyassin', 'https://www.linkedin.com/in/mhyassin'],
+    })} />
     <title>{title}</title>
   </head>
   <body>
