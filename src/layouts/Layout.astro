@@ -4,7 +4,7 @@ import '../styles/global.css';
 interface Props { title?: string; description?: string; }
 const {
   title = 'Mohamed Yassin — Senior Software Engineer & Frontend Specialist',
-  description = 'Senior Software Engineer with 11+ years of experience building frontend, mobile, web, and product experiences.',
+  description = 'Senior Software Engineer at Tess in Munich, with 11+ years of experience building frontend, mobile, and web products with React, React Native, and TypeScript.',
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -32,6 +32,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       url: 'https://iamohamed.com',
       email: 'mailto:m.hisham92@hotmail.com',
       jobTitle: 'Senior Software Engineer',
+      worksFor: { '@type': 'Organization', name: 'Tess' },
       sameAs: ['https://github.com/mhyassin', 'https://www.linkedin.com/in/mhyassin'],
     })} />
     <title>{title}</title>
