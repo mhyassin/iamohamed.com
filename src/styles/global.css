@@ -11,7 +11,7 @@
 
 @layer base {
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; background: var(--color-paper); }
+  html { scroll-behavior: smooth; scroll-padding-top: 6.5rem; background: var(--color-paper); }
   body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-sans); }
   ::selection { background: var(--color-copper); color: var(--color-paper); }
   a { color: inherit; text-decoration: none; }
