@@ -52,6 +52,19 @@ See README.md for development and deployment details.
 - Run `git diff --check` before handoff. Documentation-only changes do not need a build.
 - Report validation results and distinguish local edits from pushed or deployed changes.
 
+## Commits and pull requests
+
+- Always use Conventional Commits for commit messages and PR titles:
+  `<type>[optional scope][!]: <description>`.
+- Use a lowercase type such as `feat`, `fix`, `docs`, `refactor`, `perf`, `test`,
+  `build`, `ci`, `chore`, or `revert`, with a concise, imperative description.
+  Examples: `feat: update current role to Tess` and
+  `docs: require conventional commits and PR titles`.
+- Check the PR title before creating or merging it. Prefer squash merging with
+  the conventional PR title as the resulting commit subject; if using a merge
+  commit, set its title explicitly to follow the same convention.
+- Do not rewrite published Git history just to rename past commits.
+
 ## Deployment
 
 - A push to `main` automatically deploys to production through GitHub Actions.
