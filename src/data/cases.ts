@@ -6,7 +6,7 @@ export interface Study {
 export const cases: Record<string, Study> = {
   onvy: {
     number: '01', title: 'ONVY Mobile Health Platform', dek: 'Building and evolving a production health experience across mobile platforms.',
-    intro: 'At ONVY HealthTech, I work across product engineering and mobile architecture, helping turn complex connected-health experiences into software people can rely on.',
+    intro: 'From July 2022 to August 2026 at ONVY HealthTech, I worked across product engineering and mobile architecture, helping turn complex connected-health experiences into software people could rely on.',
     challenge: 'Health products combine evolving product requirements, multiple data sources, platform-specific behavior, privacy expectations, and a high bar for reliability. The engineering challenge is to make that complexity feel calm and coherent to the user.',
     approach: ['Create clear architectural boundaries so product work can evolve safely.', 'Treat iOS and Android as first-class platforms while sharing the right foundations.', 'Build quality, release confidence, and observability into everyday delivery.', 'Partner across product and engineering to turn ambiguity into shippable increments.'],
     result: 'A maintainable product foundation designed for steady iteration—balancing user experience, platform capability, and engineering sustainability.',
